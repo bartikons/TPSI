@@ -129,19 +129,29 @@ public class TpsiLabsLab3 {
 
         List student = listy_studentow.get("32");
         System.out.println("Nauczyciel: " + student);
-
-        try (BufferedReader in = new BufferedReader(new FileReader("C:/plik.txt"))) {
-
+        List <Product> ListOfProduct=new ArrayList<>();
+        Map<Integer,Product> IdOfProduct = new HashMap<>();
+        Map<String, List<Product>> CategoryOfProduct = new HashMap<>();
+        try (BufferedReader in = new BufferedReader(new FileReader("C:/Users/naeri/Documents/plik.txt"))) {
+            
             String s = in.readLine();
+            String[] temp;
 
             while (s != null) {
-                System.out.println(s);
-
+                temp = s.split(";");
+                Product temp2=new Product(temp[0],temp[2],Double.parseDouble(temp[4]),temp[3]) ;
+                ListOfProduct.add(temp2);
+                IdOfProduct.put(Integer.parseInt(temp[0]), temp2);
+                CategoryOfProduct.put(temp[4], ListOfProduct);
                 s = in.readLine();
             }
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+        
+        ListOfProduct.forEach((list) -> {
+            System.out.println(list);
+        });
 
     }
 }
