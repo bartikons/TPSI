@@ -1,7 +1,20 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+1czym się różni HashSet od TreeSet?
+2której klasy użyć w jakiej sytuacji?
+3czy były wymagane jakiekolwiek zmiany w kodzie poza miejscem tworzenia obiektu (new HashSet<>() / new TreeSet<>()) ?
+
+
+HashSet-Nie gwarantuje że kolejności iteracji bedzie czały czas taka sama 
+This class implements the Set interface, backed by a hash table (actually a HashMap instance). It makes no guarantees as to the iteration order of the set; in particular, it does not guarantee that the order will remain constant over time. This class permits the null element.
+
+
+TreeSet-szybkość wynosi log(n) kolejność zawsze jest taka sama sortowana 
+A NavigableSet implementation based on a TreeMap. The elements are ordered using their natural ordering, or by a Comparator provided at set creation time, depending on which constructor is used
+
+2 treeset użyjemy kiedy bedzie nam zależeć na kolejności danych a hash na szybkości
+
+3 nie potrzebujemy (dowud linijka 65,80)
+
  */
 package tpsi.labs.lab3;
 
@@ -152,6 +165,6 @@ public class TpsiLabsLab3 {
         ListOfProduct.forEach((list) -> {
             System.out.println(list);
         });
-
+        
     }
 }
