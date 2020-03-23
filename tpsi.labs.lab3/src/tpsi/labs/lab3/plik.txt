@@ -1,4 +1,12 @@
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
- Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
- Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
- Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+101;Łopata duża;narzędzia;127.50
+102;Grabie;narzędzia;34.50
+103;Baton Snickers;słodycze;2.50
+104;Baton Mars;słodycze;2.35
+105;Młotek ślusarski;narzędzia;12.00
+106;Wiertarka udarowa;narzędzia;325.00
+107;Call of Duty;oprogramowanie;190.00
+108;Czekolada nadziewana;słodycze;3.49
+109;Intellij IDEA;oprogramowanie;650.00
+110;Microsoft Windows;oprogramowanie;649.00
+111;Klucz francuski;narzędzia;73.50
+112;Zaliczenie egzaminu;inne;250.00

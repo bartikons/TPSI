@@ -12,6 +12,14 @@ package tpsi.labs.lab3;
 public class Product {
     private String id;
     private String Name;
-    private String price;
+    private double price;
     private String category;
+    public Product(String idd, String Namee, double pricee,String categoryy) {
+
+        this.id = idd;
+        this.Name = Namee;
+        this.price = pricee;
+        this.category = categoryy;
+
+    }
 }
