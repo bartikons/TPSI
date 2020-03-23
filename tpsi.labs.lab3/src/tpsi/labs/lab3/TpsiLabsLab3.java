@@ -139,10 +139,10 @@ public class TpsiLabsLab3 {
 
             while (s != null) {
                 temp = s.split(";");
-                Product temp2=new Product(temp[0],temp[2],Double.parseDouble(temp[4]),temp[3]) ;
+                Product temp2=new Product(temp[0],temp[1],Double.parseDouble(temp[3]),temp[2]) ;
                 ListOfProduct.add(temp2);
                 IdOfProduct.put(Integer.parseInt(temp[0]), temp2);
-                CategoryOfProduct.put(temp[4], ListOfProduct);
+                CategoryOfProduct.put(temp[2], ListOfProduct);
                 s = in.readLine();
             }
         } catch (IOException ex) {
