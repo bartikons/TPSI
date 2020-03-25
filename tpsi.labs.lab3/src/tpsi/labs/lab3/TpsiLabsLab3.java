@@ -13,7 +13,7 @@ A NavigableSet implementation based on a TreeMap. The elements are ordered using
 
 2 treeset użyjemy kiedy bedzie nam zależeć na kolejności danych a hash na szybkości
 
-3 nie potrzebujemy (dowud linijka 65,80)
+3 nie potrzebujemy (linijka 65,80)
 
  */
 package tpsi.labs.lab3;
@@ -142,29 +142,50 @@ public class TpsiLabsLab3 {
 
         List student = listy_studentow.get("32");
         System.out.println("Nauczyciel: " + student);
-        List <Product> ListOfProduct=new ArrayList<>();
-        Map<Integer,Product> IdOfProduct = new HashMap<>();
+
+        List<String> ListOfCategory = new ArrayList<>();
+        List<Product> ListOfProduct = new ArrayList<>();
+
+        Map<Integer, Product> IdOfProduct = new HashMap<>();
         Map<String, List<Product>> CategoryOfProduct = new HashMap<>();
+
         try (BufferedReader in = new BufferedReader(new FileReader("C:/Users/naeri/Documents/plik.txt"))) {
-            
+
             String s = in.readLine();
             String[] temp;
 
             while (s != null) {
                 temp = s.split(";");
-                Product temp2=new Product(temp[0],temp[1],Double.parseDouble(temp[3]),temp[2]) ;
+                Product temp2 = new Product(temp[0], temp[1], Double.parseDouble(temp[3]), temp[2]);
                 ListOfProduct.add(temp2);
+
+                if (!ListOfCategory.contains(temp[2])) {
+                    ListOfCategory.add(temp[2]);
+
+                }
+                ListOfCategory.indexOf(temp[2]);
+
                 IdOfProduct.put(Integer.parseInt(temp[0]), temp2);
-                CategoryOfProduct.put(temp[2], ListOfProduct);
+
+                //CategoryOfProduct.put(temp[2], lista);
                 s = in.readLine();
             }
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+        List<Product>[] ListsOfProduct = new ArrayList[ListOfCategory.size()];
+        for (int i = 0; i < ListOfCategory.size(); i++) {
+        ListsOfProduct[i]= new ArrayList<>();
+        }
         
-        ListOfProduct.forEach((list) -> {
-            System.out.println(list);
+        System.out.println(ListOfCategory.size());
+        
+        ListOfProduct.forEach((produkt) -> {
+            int index = ListOfCategory.indexOf(produkt.GetCategory());
+            System.out.println(index);
+            ListsOfProduct[index].add(index, produkt);
+            CategoryOfProduct.put(ListOfCategory.get(index), ListOfProduct);
         });
-        
+        System.out.println(CategoryOfProduct);
     }
 }

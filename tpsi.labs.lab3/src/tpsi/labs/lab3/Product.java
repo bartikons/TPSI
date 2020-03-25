@@ -22,6 +22,9 @@ public class Product {
         this.category = categoryy;
 
     }
+    public String GetCategory() {
+        return category;
+    }
     @Override
     public String toString() {
         return id + " " + Name + " " + price + " " + category;
