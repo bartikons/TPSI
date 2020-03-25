@@ -173,18 +173,21 @@ public class TpsiLabsLab3 {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+        
+        
         List<Product>[] ListsOfProduct = new ArrayList[ListOfCategory.size()];
         for (int i = 0; i < ListOfCategory.size(); i++) {
         ListsOfProduct[i]= new ArrayList<>();
         }
         
-        System.out.println(ListOfCategory.size());
+        System.out.println("Size of ListOfCategory "+ListOfCategory.size());
+        System.out.println("Size of ListOfProduct "+ListOfProduct.size());
         
         ListOfProduct.forEach((produkt) -> {
             int index = ListOfCategory.indexOf(produkt.GetCategory());
             System.out.println(index);
-            ListsOfProduct[index].add(index, produkt);
-            CategoryOfProduct.put(ListOfCategory.get(index), ListOfProduct);
+            ListsOfProduct[index].add(produkt);
+            CategoryOfProduct.put(ListOfCategory.get(index), ListsOfProduct[index]);
         });
         System.out.println(CategoryOfProduct);
     }
