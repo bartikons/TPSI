@@ -180,15 +180,14 @@ public class TpsiLabsLab3 {
         ListsOfProduct[i]= new ArrayList<>();
         }
         
-        System.out.println("Size of ListOfCategory "+ListOfCategory.size());
-        System.out.println("Size of ListOfProduct "+ListOfProduct.size());
-        
         ListOfProduct.forEach((produkt) -> {
             int index = ListOfCategory.indexOf(produkt.GetCategory());
-            System.out.println(index);
             ListsOfProduct[index].add(produkt);
             CategoryOfProduct.put(ListOfCategory.get(index), ListsOfProduct[index]);
         });
+        
+        System.out.println(IdOfProduct);
+        
         System.out.println(CategoryOfProduct);
     }
 }
