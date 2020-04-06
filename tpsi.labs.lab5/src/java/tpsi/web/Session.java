@@ -25,7 +25,7 @@ public class Session extends HttpServlet {
         } else {
             if (Objects.isNull(session.getAttribute("licznik"))) {
                 
-            session.setAttribute("licznik", -1);
+            session.setAttribute("licznik", 0);
             }
             temp = (Integer) session.getAttribute("licznik");
             session.setAttribute("licznik", temp + 1);
