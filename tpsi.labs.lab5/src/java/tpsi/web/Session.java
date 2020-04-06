@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,10 +23,15 @@ public class Session extends HttpServlet {
         if (session.isNew()) {
             session.setAttribute("licznik", temp);
         } else {
+            if (Objects.isNull(session.getAttribute("licznik"))) {
+                
+            session.setAttribute("licznik", -1);
+            }
             temp = (Integer) session.getAttribute("licznik");
             session.setAttribute("licznik", temp + 1);
         }
         request.getRequestDispatcher("licznik.jsp").forward(request, response);
+
     }
 
 }

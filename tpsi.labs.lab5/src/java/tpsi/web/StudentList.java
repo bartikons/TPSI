@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,6 +25,7 @@ public class StudentList extends HttpServlet {
         session.setAttribute("Lista_studentow", Studentlist);
         request.getRequestDispatcher("studentList.jsp").forward(request, response);
         }
+        
         List<Student> Studentlist=(List<Student>)session.getAttribute("Lista_studentow");
         Student temp=new Student(request.getParameter("imie"), request.getParameter("nazwisko"), request.getParameter("email"),request.getParameter("id"));
         Studentlist.add(temp);
@@ -37,10 +39,13 @@ public class StudentList extends HttpServlet {
         HttpSession session = request.getSession();
         if (session.isNew()) {
         List<Student> Studentlist = new ArrayList<>();
-        
+        session.setAttribute("Lista_studentow", Studentlist);
         request.getRequestDispatcher("studentList.jsp").forward(request, response);
         }
-        
+        if (Objects.isNull(session.getAttribute("Lista_studentow"))) {
+        List<Student> Studentlist = new ArrayList<>();
+        session.setAttribute("Lista_studentow", Studentlist);
+        }
         List<Student> Studentlist=(List<Student>)session.getAttribute("Lista_studentow");
         session.setAttribute("Lista_studentow", Studentlist);
         response.setContentType("text/html;charset=UTF-8");
