@@ -34,7 +34,6 @@
             <input type='text' name='imie'>
             <input type='text' name='nazwisko'>
             <input type='text' name='email'>
-            <input type='text' name='id'>
             <input type='submit'>
         </form>
         <p><a href="/tpsi.labs.lab5/Session">Licznik odwiedzin</a></p>

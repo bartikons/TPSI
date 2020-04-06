@@ -20,31 +20,31 @@ public class StudentList extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
         if (session.isNew()) {
-            List<Student> Studentlist = new ArrayList<>();
-            session.setAttribute("Lista_studentow", Studentlist);
-            request.getRequestDispatcher("studentList.jsp").forward(request, response);
+        List<Student> Studentlist = new ArrayList<>();
+        session.setAttribute("Lista_studentow", Studentlist);
+        request.getRequestDispatcher("studentList.jsp").forward(request, response);
         }
-        List<Student> Studentlist = (List<Student>) session.getAttribute("Lista_studentow");
-        Student temp = new Student(request.getParameter("imie"), request.getParameter("nazwisko"), request.getParameter("email"), request.getParameter("id"));
+        List<Student> Studentlist=(List<Student>)session.getAttribute("Lista_studentow");
+        Student temp=new Student(request.getParameter("imie"), request.getParameter("nazwisko"), request.getParameter("email"),request.getParameter("id"));
         Studentlist.add(temp);
         session.setAttribute("Lista_studentow", Studentlist);
         request.getRequestDispatcher("studentList.jsp").forward(request, response);
 
     }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+ protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+     
         HttpSession session = request.getSession();
-
-        if (session.isNew()) { 
-            List<Student> Studentlist = new ArrayList<>();
-            session.setAttribute("Lista_studentow", Studentlist);
-            request.getRequestDispatcher("studentList.jsp").forward(request, response);
+        if (session.isNew()) {
+        List<Student> Studentlist = new ArrayList<>();
+        
+        request.getRequestDispatcher("studentList.jsp").forward(request, response);
         }
-        List<Student> Studentlist = (List<Student>) session.getAttribute("Lista_studentow");
+        
+        List<Student> Studentlist=(List<Student>)session.getAttribute("Lista_studentow");
         session.setAttribute("Lista_studentow", Studentlist);
         response.setContentType("text/html;charset=UTF-8");
         request.getRequestDispatcher("studentList.jsp").forward(request, response);
-
-    }
+        
+ }
 }
