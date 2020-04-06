@@ -19,14 +19,12 @@
                 <th>imie</th>
                 <th>Nazwisko</th>
                 <th>e-mail</th>
-                <th>grupa</th>
             </tr>
         <c:forEach items='${sessionScope["Lista_studentow"]}' var="student">
             <tr>
                 <th>${student.firstName}</th>
                 <th>${student.lastName}</th>
                 <th>${student.emailAddress}</th>
-                <th>${student.groupId}</th>
             </tr>
         </c:forEach>
             </table>
