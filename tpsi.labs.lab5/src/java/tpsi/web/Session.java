@@ -20,16 +20,12 @@ public class Session extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
         int temp = 0;
-        if (session.isNew()) {
-            session.setAttribute("licznik", temp);
-        } else {
-            if (Objects.isNull(session.getAttribute("licznik"))) {
-                
+        if (Objects.isNull(session.getAttribute("licznik"))) {
+
             session.setAttribute("licznik", 0);
-            }
-            temp = (Integer) session.getAttribute("licznik");
-            session.setAttribute("licznik", temp + 1);
         }
+        temp = (Integer) session.getAttribute("licznik");
+        session.setAttribute("licznik", temp + 1);
         request.getRequestDispatcher("licznik.jsp").forward(request, response);
 
     }

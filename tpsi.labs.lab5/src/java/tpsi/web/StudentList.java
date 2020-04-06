@@ -21,7 +21,7 @@ public class StudentList extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
-        if (session.isNew()) {
+        if (Objects.isNull(session.getAttribute("Lista_studentow"))) {
             List<Student> Studentlist = new ArrayList<>();
             session.setAttribute("Lista_studentow", Studentlist);
             request.getRequestDispatcher("studentList.jsp").forward(request, response);
@@ -40,11 +40,6 @@ public class StudentList extends HttpServlet {
             throws ServletException, IOException {
 
         HttpSession session = request.getSession();
-        if (session.isNew()) {
-            List<Student> Studentlist = new ArrayList<>();
-            session.setAttribute("Lista_studentow", Studentlist);
-            request.getRequestDispatcher("studentList.jsp").forward(request, response);
-        }
         if (Objects.isNull(session.getAttribute("Lista_studentow"))) {
             List<Student> Studentlist = new ArrayList<>();
             session.setAttribute("Lista_studentow", Studentlist);
